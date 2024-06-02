@@ -1,0 +1,28 @@
+<!-- templates/brewery_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ brewery.name }}</title>
+</head>
+<body>
+    <h1>{{ brewery.name }}</h1>
+    <p><strong>Address:</strong> {{ brewery.street }}, {{ brewery.city }}, {{ brewery.state }}</p>
+    <p><strong>Phone:</strong> {{ brewery.phone }}</p>
+    <p><strong>Website:</strong> <a href="{{ brewery.website_url }}">{{ brewery.website_url }}</a></p>
+    <p><strong>Type:</strong> {{ brewery.brewery_type }}</p>
+    <h2>Reviews</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <strong>Rating:</strong> {{ review.rating }}<br>
+                <strong>Comment:</strong> {{ review.comment }}<br>
+                <strong>User:</strong> {{ review.user.username }}
+            </li>
+        {% empty %}
+            <li>No reviews yet.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_review' brewery.api_id %}">Add Review</a>
+</body>
+</html>

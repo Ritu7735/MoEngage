@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="{% static '/css/index.css' %}" rel="stylesheet">
+<body class="bg" style="background:url('static/images/img1.jpg'); background-size:cover;">
+<!--<h1>Welcome to home page</h1>-->
+<h2 align="center">Welcome to Brewery Application</h2>
+<a href="{% url 'loginpage' %}" class="btn btn-primary btn-lg btn-block">
+    <img src="{% static '/images/img2.jpg' %}">
+</a>
+</body>
+<body>
+<!--<h1>Welcome to the home page</h1>-->
+<!--</body>-->
+{% endblock %}

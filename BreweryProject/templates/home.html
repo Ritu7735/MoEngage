@@ -1,0 +1,34 @@
+<!-- brewery/templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brewery Search</title>
+</head>
+<body>
+
+    <h1>Brewery Search</h1>
+    <form method="post">
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for brewery in results %}
+            <li>
+                <strong>Name:</strong> {{ brewery.name }}<br>
+                <strong>Type:</strong> {{ brewery.brewery_type }}<br>
+                <strong>City:</strong> {{ brewery.city }}<br>
+                <strong>State:</strong> {{ brewery.state }}<br>
+                <a href="{% url 'add_review' brewery.id %}">Add Review</a>
+
+            </li>
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+    {% load custom_filters %}
+
+</body>
+</html>

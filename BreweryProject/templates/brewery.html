@@ -1,0 +1,15 @@
+{% load static %}<!--<load all static files  to this file  >-->
+{% block content %}<!--< container open   >-->
+<link href="{% static 'css/search.css' %}" rel="stylesheet"><!--<access family_person.css to this file  >-->
+<!--<body style="background:url('static/images/img1.jpg');background-size:cover">-->
+<body style="background-color:powderblue;">
+
+<h2>Welcome to Home page</h2>
+ <div class="container">
+      <form action="POST" class="searchbar">
+        <input type="text" placeholder="search anything" name="q">
+        <button type="submit"><img src="static/images/img3.png"></button>
+      </form>
+  </div>
+</body>
+{% endblock %} <!--< container close >-->
